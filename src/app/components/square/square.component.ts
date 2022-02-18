@@ -7,4 +7,5 @@ import { Component, Input, OnInit } from '@angular/core';
 })
 export class SquareComponent {
   @Input() squareValue: 'X' | 'O';
+  @Input() hasWinner: boolean;
 }

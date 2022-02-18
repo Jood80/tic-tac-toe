@@ -1,1 +1,3 @@
-<button>{{squareValue}}</button>
+<button nbButton [disabled]="hasWinner" *ngIf="!squareValue">{{squareValue}}</button>
+<button nbButton [disabled]="hasWinner" hero status="success" *ngIf="squareValue ==='X'">{{squareValue}}</button>
+<button nbButton [disabled]="hasWinner" hero status="info" *ngIf="squareValue ==='O'">{{squareValue}}</button>

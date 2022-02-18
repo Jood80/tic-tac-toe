@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnDestroy, OnInit } from '@angular/core';
 
 @Component({
   selector: 'app-board',
@@ -8,6 +8,7 @@ import { Component, OnInit } from '@angular/core';
 export class BoardComponent implements OnInit {
   squares: any[];
   winner: string;
+  hasWinner: boolean;
   xIsNext: boolean; //to determine the current player
 
   constructor() {}
@@ -19,6 +20,7 @@ export class BoardComponent implements OnInit {
   newGame() {
     this.squares = Array(9).fill(null);
     this.winner = null!;
+    this.hasWinner = false;
     this.xIsNext = true;
   }
 
@@ -57,5 +59,8 @@ export class BoardComponent implements OnInit {
       this.xIsNext = !this.xIsNext;
     }
     this.winner = this.calculateWinner();
+    if (this.winner.length > 0) {
+      this.hasWinner = true;
+    }
   }
 }
